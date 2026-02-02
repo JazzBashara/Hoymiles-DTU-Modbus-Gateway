@@ -2,7 +2,7 @@
   "name": "Hoymiles DTU Modbus Gateway",
   "slug": "hoymiles_dtu_modbus",
   "description": "Reads per-port DC power data from Hoymiles DTU via Modbus TCP and publishes to MQTT with HA auto-discovery",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "url": "https://github.com/JazzBashara/Hoymiles-DTU-Modbus-Gateway",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
