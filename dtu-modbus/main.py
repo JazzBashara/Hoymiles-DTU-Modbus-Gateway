@@ -1,6 +1,6 @@
 """Hoymiles DTU Modbus Gateway - reads per-port data via Modbus TCP, publishes to MQTT."""
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 import json
 import logging
