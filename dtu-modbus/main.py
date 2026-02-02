@@ -28,7 +28,8 @@ logger = logging.getLogger("HoymilesDTU")
 
 def get_config() -> dict:
     """Load configuration from /data/options.json (HA add-on) or ./config.json (local dev)."""
-    for path in ["/data/options.json", "options_local.json", "config.json"]:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    for path in ["/data/options.json", os.path.join(script_dir, "options_local.json"), os.path.join(script_dir, "config.json")]:
         if os.path.isfile(path):
             with open(path) as f:
                 cfg = json.load(f)

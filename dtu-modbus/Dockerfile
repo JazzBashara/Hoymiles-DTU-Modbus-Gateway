@@ -5,9 +5,11 @@ RUN pip3 install --no-cache-dir \
     hoymiles_modbus==0.9.1 \
     paho-mqtt==1.6.1
 
-WORKDIR /data
-COPY main.py const.py /data/
-COPY run.sh /
-RUN chmod a+x /run.sh
+COPY main.py const.py /app/
 
-CMD [ "/run.sh" ]
+# s6-overlay v3 service definition
+COPY run.sh /etc/s6-overlay/s6-rc.d/hoymiles/run
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/hoymiles/run \
+    && echo "longrun" > /etc/s6-overlay/s6-rc.d/hoymiles/type \
+    && mkdir -p /etc/s6-overlay/s6-rc.d/user/contents.d \
+    && touch /etc/s6-overlay/s6-rc.d/user/contents.d/hoymiles
