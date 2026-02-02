@@ -1,0 +1,36 @@
+{
+  "name": "Hoymiles DTU Modbus Gateway",
+  "slug": "hoymiles_dtu_modbus",
+  "description": "Reads per-port DC power data from Hoymiles DTU via Modbus TCP and publishes to MQTT with HA auto-discovery",
+  "version": "0.1.0",
+  "url": "https://github.com/JazzBashara/Hoymiles-DTU-Modbus-Gateway",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "services": ["mqtt:need"],
+  "host_network": true,
+  "options": {
+    "DTU_HOST": "",
+    "DTU_PORT": 502,
+    "External_MQTT_Server": false,
+    "MQTT_Host": "",
+    "MQTT_User": "",
+    "MQTT_Pass": "",
+    "MQTT_TLS": false,
+    "MQTT_TLS_PORT": 8883,
+    "POLLING_TIME": 35,
+    "LOG_LEVEL": "INFO"
+  },
+  "schema": {
+    "DTU_HOST": "str",
+    "DTU_PORT": "port",
+    "External_MQTT_Server": "bool",
+    "MQTT_Host": "str?",
+    "MQTT_User": "str?",
+    "MQTT_Pass": "password?",
+    "MQTT_TLS": "bool",
+    "MQTT_TLS_PORT": "port",
+    "POLLING_TIME": "int(30,300)",
+    "LOG_LEVEL": "list(DEBUG|INFO|WARNING|ERROR)"
+  }
+}
